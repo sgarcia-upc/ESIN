@@ -1,0 +1,14 @@
+[]
+[1,0]
+insereix B 1 0: [1,0]
+conte B 0 0: 0
+conte B 1 0: 1
+max B: 1,0
+min B: 1,0
+card B: 1
+insereix B 0 0: [0,0 1,0]
+conte B 0 0: 1
+conte B 1 0: 1
+max B: 1,0
+min B: 0,0
+card B: 2

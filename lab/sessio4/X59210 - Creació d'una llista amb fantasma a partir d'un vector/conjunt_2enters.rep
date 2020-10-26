@@ -1,0 +1,19 @@
+struct node {
+    pair <int,int> info;
+    node* next;
+};
+
+node* head; // punter al fantasma
+int size;
+
+
+//Llibera memoria y copia n a si mateix
+void copiar(const cj_2enters &n);
+
+// Llibera tota la memoria
+void kill_me();
+
+//Si a < b return -1
+//Si a == b return 0
+//Si a > b return 1
+int compare_pair(pair <int,int> a, pair<int,int> b);

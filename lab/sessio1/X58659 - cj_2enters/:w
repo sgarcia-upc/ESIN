@@ -29,17 +29,15 @@ cj_2enters::~cj_2enters(){
 // Insereix la parella d'enters pe en el conjunt. No fa res si pe ja pertanyia al conjunt.
 void cj_2enters::insereix(pair<int, int> pe){
 
-    bool equal = false;
-    int i; 
-    for (i = size - 1; (i >= 0 && (rcj[i].first > pe.first || (rcj[i].first == pe.first && rcj[i].second > pe.second))); i--){ 
-        cout << pe << " == " << rcj[i]
-        rcj[i + 1] = rcj[i];
-    }
-
-    if (not equal){
+    if (!conte(pe)){
+        int i; 
+        for (i = size - 1; (i >= 0 && (rcj[i].first > pe.first || (rcj[i].first == pe.first && rcj[i].second > pe.second))); i--)
+            rcj[i + 1] = rcj[i];
+        
         rcj[i + 1] = pe;
         size++;
     }
+
 }
 
 // Unió, intersecció i diferència de conjunts. Operen modificant el conjunt sobre el que
@@ -52,39 +50,19 @@ void cj_2enters::unir(const cj_2enters& B){
 }
 
 void cj_2enters::intersectar(const cj_2enters& B){
-    cj_2enters result;
-    for (int i=0; i < size; i++){
-        for (int x=0; x < B.size; x++){
-            if (rcj[i].first == B.rcj[x].first && rcj[i].second == B.rcj[x].second){
-                result.insereix(rcj[i]);
-            }
-        }
-    }
 
-    for (int i=0; i < result.size; i++){
-        rcj[i] = result.rcj[i];
+    int s = size;
+    if (s > B.size){
+        s=B.size;
     }
-    size = result.size;
+    for (int i=0; i < s; i++){
+        if (rcj[i].first < B[i].first){
+        
+        } 
+    }
 }
 
 void cj_2enters::restar(const cj_2enters& B) {
-    cj_2enters result;
-    bool add = true;
-    for (int i=0; i < size; i++){
-        for (int x=0; x < B.size; x++){
-            if (rcj[i].first == B.rcj[x].first && rcj[i].second == B.rcj[x].second){
-                add = false;
-                break;
-            }
-        }
-        if (add)
-            result.insereix(rcj[i]);
-    }
-
-    for (int i=0; i < result.size; i++){
-        rcj[i] = result.rcj[i];
-    }
-    size = result.size;
 }
 
 // Unió, intersecció i diferència de conjunts. Operen creant un nou conjunt sense

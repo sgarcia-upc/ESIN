@@ -44,49 +44,81 @@ void cj_2enters::insereix(pair<int, int> pe){
 // s'aplica el mètode, usant el segon conjunt com argument. P.e.: a.restar(b) fa que el
 // nou valor d'a sigui A - B, on A i B són els valors originals dels objectes a i b.
 void cj_2enters::unir(const cj_2enters& B){
-    for (int i=0; i < B.size; i++){
-        insereix(B.rcj[i]);
-    }
+//    cj_2enters aux;
+//    
+//    int this_n = 0;
+//    int B_n = 0;
+//    int aux_n = 0;
+//    while (this_n < size or B_n < B.size){
+//        if (rcj[this_n].first < B.rcj[B_n].first or (rcj[this_n].first == B.rcj[B_n].first and rcj[this_n].second < B.rcj[B_n].second)){
+//            aux.rcj[aux_n] = rcj[this_n];
+//            aux_n++;
+//            this_n++;
+//        }
+//        if (rcj[this_n].first > B.rcj[B_n].first or (rcj[this_n].first == B.rcj[B_n].first and rcj[this_n].second > B.rcj[B_n].second)){
+//            aux.rcj[aux_n] = rcj[B_n];
+//            aux_n++;
+//            B_n++;
+//        }
+//    }
+//
+//    while (B_n < B.size){
+//        aux.rcj[aux_n] = B.rcj[B_n];
+//        aux_n++;
+//        B_n++;
+//    }
+//
+//    while (this_n < size){
+//        aux.rcj[aux_n] = rcj[this_n];
+//        aux_n++;
+//        this_n++;
+//    }
+//
+//    for (int i=0; i < aux.size; i++){
+//        rcj[i] = aux.rcj[i];
+//    }
+//    size = aux.size;
+//    
 }
 
 void cj_2enters::intersectar(const cj_2enters& B){
-    cj_2enters result;
-    for (int i=0; i < size; i++){
-
-        if (rcj[i].first >= B.min().first && rcj[i].second >= B.min().second)
-            if (rcj[i].first <= B.max().first && rcj[i].second<= B.min().second)
-                for (int x=0; x < B.size; x++){
-                    if (rcj[i].first == B.rcj[x].first && rcj[i].second == B.rcj[x].second){
-                        result.insereix(rcj[i]);
-                        break;
-                    }
-                }
-    }
-
-    for (int i=0; i < result.size; i++){
-        rcj[i] = result.rcj[i];
-    }
-    size = result.size;
+//    cj_2enters result;
+//    for (int i=0; i < size; i++){
+//        if (rcj[i].first > B.max().first && rcj[i].second > B.max().second){
+//            break;
+//        }
+//        for (int x=0; x < B.size; x++){
+//            if (rcj[i].first == B.rcj[x].first && rcj[i].second == B.rcj[x].second){
+//                result.insereix(rcj[i]);
+//                break;
+//            }
+//        }
+//    }
+//
+//    for (int i=0; i < result.size; i++){
+//        rcj[i] = result.rcj[i];
+//    }
+//    size = result.size;
 }
 
 void cj_2enters::restar(const cj_2enters& B) {
-    cj_2enters result;
-    for (int i=0; i < size; i++){
-        if (rcj[i].first > B.max().first && rcj[i].second > B.max().second){
-            break;
-        }
-        for (int x=0; x < B.size; x++){
-            if (rcj[i].first == B.rcj[x].first && rcj[i].second == B.rcj[x].second){
-                result.insereix(rcj[i]);
-                break;
-            }
-        }
-    }
-
-    for (int i=0; i < result.size; i++){
-        rcj[i] = result.rcj[i];
-    }
-    size = result.size;
+//    cj_2enters result;
+//    for (int i=0; i < size; i++){
+//        if (rcj[i].first > B.max().first && rcj[i].second > B.max().second){
+//            break;
+//        }
+//        for (int x=0; x < B.size; x++){
+//            if (rcj[i].first == B.rcj[x].first && rcj[i].second == B.rcj[x].second){
+//                result.insereix(rcj[i]);
+//                break;
+//            }
+//        }
+//    }
+//
+//    for (int i=0; i < result.size; i++){
+//        rcj[i] = result.rcj[i];
+//    }
+//    size = result.size;
 }
 
 // Unió, intersecció i diferència de conjunts. Operen creant un nou conjunt sense
@@ -95,19 +127,19 @@ void cj_2enters::restar(const cj_2enters& B) {
 
 cj_2enters cj_2enters::operator+(const cj_2enters& B) const{
     cj_2enters result(*this);
-    result.unir(B);
+//   result.unir(B);
     return result;
 }
 
 cj_2enters cj_2enters::operator*(const cj_2enters& B) const {
     cj_2enters result(*this);
-    result.intersectar(B);
+//    result.intersectar(B);
     return result;
 }
 
 cj_2enters cj_2enters::operator-(const cj_2enters& B) const{
     cj_2enters result(*this);
-    result.restar(B);
+//    result.restar(B);
     return result;
 }
 

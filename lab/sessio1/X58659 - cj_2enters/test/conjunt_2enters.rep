@@ -1,0 +1,4 @@
+#define MAXSIZE 1000000
+
+int size;
+pair<int, int> rcj [MAXSIZE];
